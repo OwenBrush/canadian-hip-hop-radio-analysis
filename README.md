@@ -42,7 +42,7 @@
   -  null values are matched to existing information by label name
 
 - Chart Position
-  - NOTE: Distribution of chart positions is almost exactly equal:
+  - NOTE: Distribution of chart positions is almost exactly equal (Should null values be changed to 1 to fit this pattern?):
     - 1   =   3561
     - 2   =   3586
     - 3   =   3586
