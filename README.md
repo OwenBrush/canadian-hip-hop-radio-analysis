@@ -29,18 +29,40 @@
     - artist names: birdman, rhymekeepers, john smith, m.i.a., the dirty sample, j57, justin bieber, roots manuva meets wrongtom, alias and tarsier, d-sisive, ghostface killah, bobby digital (rza), rick ross 
     - most appear to be the result of typos or small decimal differences, where multiple distinct locations exist the one with the most entries is chosen.
   - null values are matched to existing information for given artist
-  - 3 named artists with missing lattitude/longitude are given that information based on city data
-    - Geckoturner-> Madrid
-    - Nas & Damian Marley -> New York
-    - Non + Herrmutt Lobby -> Los Angeles
-  - 1 instance of 'e' in the language of music column is replaced with 'english'
-
   - remaining null values in the MAPL columns are replaced with 'no'
   - any remaining null values in artist related columns are replaced with 'unknown'
 
 - Album data
-  - null values are matched to existing information for given album
-  -  
+  - null values are matched to existing information by album name
+  - in language of music column
+    - replace 'e' with 'english'
+    - replace 'yes' with 'other'
+ 
+- Label data
+  -  null values are matched to existing information by label name
 
+- Chart Position
+  - NOTE: Distribution of chart positions is almost exactly equal:
+    - 1   =   3561
+    - 2   =   3586
+    - 3   =   3586
+    - 4   =   3585
+    - 5   =   3586
+    - 6   =   3586
+    - 7   =   3586
+    - 8   =   3586
+    - 9   =   3586
+    - 10  =   3585
+    - NaN =     25
+  - 25 null chart positions are filled with the average chart position of the given artist.
+    - artist names (1 missing value each): psyche origami, aceyalone, dilated peoples, jay bizzy, ok cobra, iam, pharoahe monch, jesse dangerously, othello, cadence weapon, guilty simpson, atmosphere, invincible, j'davey, factor, art of fresh, josh martinez, art of fresh, ghettosocks, p.o.s., k'naan, le klub des 7, various_19, the roots, dj brace
 
+- Artist Distance
+  - recalculate the haversine distance between station and artist for every record 
+
+- Add Canadian content
+  - rename MAPL columns 
+  - add new column 'CANADIAN CONTENT' 
+    - >= 2 MAPL = 'yes'
+    - < 2 MAPL = 'no'
 
