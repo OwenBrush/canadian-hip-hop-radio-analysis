@@ -22,17 +22,28 @@
 - Clean Artist data
   - 1 record with no artist data is removed
   - 29 instances of artists named 'various' are grouped by shared lattitude/longitude and given unique names (various_1, various_2, etc)
-  - 1478 instances of artists name 'various' do not have lattitude/longitude information
-    - TODO: consider filling in lattitude/longitude based on country or city information where possible
-    - these artists will be excluded from geographic visualization but included in statistical data
+    - switched name of remaining 'various' artists to 'unkown'
   - 13 artists with more than one lattitude/longitude are fixed to only have 1
     - artist names: birdman, rhymekeepers, john smith, m.i.a., the dirty sample, j57, justin bieber, roots manuva meets wrongtom, alias and tarsier, d-sisive, ghostface killah, bobby digital (rza), rick ross 
     - most appear to be the result of typos or small decimal differences, where multiple distinct locations exist the one with the most entries is chosen.
   - null values are matched to existing information for given artist
   - remaining null values in the MAPL columns are replaced with 'no'
   - any remaining null values in artist related columns are replaced with 'unknown'
-  - 57 named (not counting 'various') artists without lattitude/longitude
-    - TODO: consider filling in lattitude/longitude based on country or city information where possible
+  - filled in missing latitude / longitude data by matching to city name
+    - also matched all latitude / longitude to city names, so there is only one set per city 
+  - 1771 records between 45 different names artists and various unknown artists remain without lat / long or city information
+    - names artists without: 'dreddy kruger', '12seven', 'e.v.o', 'prz', 'con quest',
+       'existero and barfly', 'janelle', 'versus', 'lyric 1',
+       'the champions', 'rapscallion', 'reality sandwich', 'deepspace 5',
+       'free thinkers society', 'silk fire',
+       'awol one, josh martinez & moves', 'similar differences', 'c.e.o.',
+       'life sentences', 'shalom & moziz', 'c-k', 'teargas & plateglass',
+       'terrill jerome cook', 'felony', 'beware of dear', 'flex',
+       'assholes & whitties', 'pryde messiah', 'longstory',
+       'grown man bidness', 'tag digs', 'flo flo', 'taalam acey', 'swiss',
+       'two fingers', 'booker t.', "str8 trippin'", 'soul assassins',
+       'martin cradick & the baka at gbine', 'the slew', 'young money',
+       'price', 'radar', 'choicemakerz', 'tree'
 
 - Album data
   - null values are matched to existing information by album name
