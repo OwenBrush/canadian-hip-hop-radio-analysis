@@ -31,15 +31,21 @@
   - null values are matched to existing information for given artist
   - remaining null values in the MAPL columns are replaced with 'no'
   - any remaining null values in artist related columns are replaced with 'unknown'
+  - 57 named (not counting 'various') artists without lattitude/longitude
+    - TODO: consider filling in lattitude/longitude based on country or city information where possible
 
 - Album data
   - null values are matched to existing information by album name
   - in language of music column
     - replace 'e' with 'english'
     - replace 'yes' with 'other'
+    - replace null with 'unknown'
  
 - Label data
   -  null values are matched to existing information by label name
+  -  5 labels are missing types, replaced with 'unknown'
+     - Label names: 'hr', 'carhartt/because', 'homegrown inc.', 'the hip hop company',
+       'word supremacy press'  
 
 - Chart Position
   - NOTE: Distribution of chart positions is almost exactly equal (Should null values be changed to 1 to fit this pattern?):
