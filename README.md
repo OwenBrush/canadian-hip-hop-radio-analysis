@@ -63,6 +63,6 @@
 - Add Canadian content
   - rename MAPL columns 
   - add new column 'CANADIAN CONTENT' 
-    - >= 2 MAPL = 'yes'
-    - < 2 MAPL = 'no'
+    - 2 or more MAPL = 'yes'
+    - less than 2 MAPL = 'no'
 
