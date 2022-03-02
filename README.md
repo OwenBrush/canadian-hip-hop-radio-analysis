@@ -31,19 +31,8 @@
   - any remaining null values in artist related columns are replaced with 'unknown'
   - filled in missing latitude / longitude data by matching to city name
     - also matched all latitude / longitude to city names, so there is only one set per city 
-  - 1771 records between 45 different names artists and various unknown artists remain without lat / long or city information
-    - names artists without: 'dreddy kruger', '12seven', 'e.v.o', 'prz', 'con quest',
-       'existero and barfly', 'janelle', 'versus', 'lyric 1',
-       'the champions', 'rapscallion', 'reality sandwich', 'deepspace 5',
-       'free thinkers society', 'silk fire',
-       'awol one, josh martinez & moves', 'similar differences', 'c.e.o.',
-       'life sentences', 'shalom & moziz', 'c-k', 'teargas & plateglass',
-       'terrill jerome cook', 'felony', 'beware of dear', 'flex',
-       'assholes & whitties', 'pryde messiah', 'longstory',
-       'grown man bidness', 'tag digs', 'flo flo', 'taalam acey', 'swiss',
-       'two fingers', 'booker t.', "str8 trippin'", 'soul assassins',
-       'martin cradick & the baka at gbine', 'the slew', 'young money',
-       'price', 'radar', 'choicemakerz', 'tree'
+  - 1771 records between 45 different named artists and various unknown artists remain without lat / long or city information
+    - names of artists without this information: 'dreddy kruger', '12seven', 'e.v.o', 'prz', 'con quest', 'existero and barfly', 'janelle', 'versus', 'lyric 1', 'the champions', 'rapscallion', 'reality sandwich', 'deepspace 5', 'free thinkers society', 'silk fire', 'awol one, josh martinez & moves', 'similar differences', 'c.e.o.', 'life sentences', 'shalom & moziz', 'c-k', 'teargas & plateglass', terrill jerome cook', 'felony', 'beware of dear', 'flex', 'assholes & whitties', 'pryde messiah', 'longstory', 'grown man bidness', 'tag digs', 'flo flo', 'taalam acey', 'swiss', 'two fingers', 'booker t.', "str8 trippin'", 'soul assassins', 'martin cradick & the baka at gbine', 'the slew', 'young money', 'price', 'radar', 'choicemakerz', 'tree'
 
 - Album data
   - null values are matched to existing information by album name
