@@ -28,6 +28,19 @@
     - most appear to be the result of typos or small decimal differences, where multiple distinct locations exist the one with the most entries is chosen.
   - null values are matched to existing information for given artist
   - remaining null values in the MAPL columns are replaced with 'no'
+  - demographic classification consolodated into fewer options
+    - ARTIST GENDER
+      - 'female group' -> 'female' (97 instances)
+      - 'male group' -> 'male' (11756 instances)
+    - VISIBLE ETHNIC MINORITY
+      - 'black' -> 'yes'  (1 instance)
+    - CENSUS RACE CLASSIFICATION
+      - 'asian other','other asian', 'east asian' -> 'asian'
+      - 'asian indian','indian asian' -> 'indian'
+      - 'native canadian' -> 'native american' (159 instances)
+      - 'inuit' -> 'native american' (19 instances)
+      - 'metis' -> 'native american' (7 instances)
+      
   - any remaining null values in artist related columns are replaced with 'unknown'
   - filled in missing latitude / longitude data by matching to city name
     - also matched all latitude / longitude to city names, so there is only one set per city 
