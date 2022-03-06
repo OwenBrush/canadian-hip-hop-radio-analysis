@@ -98,6 +98,6 @@
 
 - The distribution of chart positions indicate that this data is not randomly sampled and the demographic information it holds can't be assumed to be representive of real world trends in broadcasting unless, perhaps, a single chart position is isolated and looked at individually.
 
-- The lack of any artists being played more than once per week per station also seems unlikely to be the result of random sampling.  It could be a result of the small sampling size on a per week per station basis but is worth questioning whether it is randomly sampled or not.
+- The lack of any artists being played more than once per week per station also seems unlikely to be the result of random sampling.  It could be a result of the small sampling size on a per week per station basis but is worth questioning whether the data has been filtered in this regard aswell.
 
 - Given the small sampling size of data on the per week / per station level, even if it is randomly sampled it still is not enough data to give an accurate impression of what is being played when looking at only a single station on a single week.
