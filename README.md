@@ -5,7 +5,6 @@
 - Analyze data for complex correlational insights
 - Visualize the data to support a written thesis
 
-
 ### Data Cleaning Documentation:
 
 - Strings
@@ -61,18 +60,6 @@
        'word supremacy press'  
 
 - Chart Position
-  - NOTE: Distribution of chart positions is almost exactly equal (Should null values be changed to 1 to fit this pattern?):
-    - 1   =   3561
-    - 2   =   3586
-    - 3   =   3586
-    - 4   =   3585
-    - 5   =   3586
-    - 6   =   3586
-    - 7   =   3586
-    - 8   =   3586
-    - 9   =   3586
-    - 10  =   3585
-    - NaN =     25
   - 25 null chart positions are filled with the average chart position of the given artist.
     - artist names (1 missing value each): psyche origami, aceyalone, dilated peoples, jay bizzy, ok cobra, iam, pharoahe monch, jesse dangerously, othello, cadence weapon, guilty simpson, atmosphere, invincible, j'davey, factor, art of fresh, josh martinez, art of fresh, ghettosocks, p.o.s., k'naan, le klub des 7, various_19, the roots, dj brace
 
@@ -84,4 +71,33 @@
   - add new column 'CANADIAN CONTENT' 
     - 2 or more MAPL = 'yes'
     - less than 2 MAPL = 'no'
+    
+- TODO:
+  - account for demographic information of unknown artists instead of grouping them all together with the most common freatures
 
+
+### Notes about data:
+
+- Distribution of chart positions is precisely equal (Should null values be changed to 1 to fit this pattern?):
+  - 1   =   3561
+  - 2   =   3586
+  - 3   =   3586
+  - 4   =   3585
+  - 5   =   3586
+  - 6   =   3586
+  - 7   =   3586
+  - 8   =   3586
+  - 9   =   3586
+  - 10  =   3585
+  - NaN =     25
+
+- Artists are almsot never played more than once per week at any given station
+- There is a relatively small sampling size of artists played for a weeklong period at any given station.
+
+### Thoughts about data:
+
+- The distribution of chart positions indicate that this data is not randomly sampled and the demographic information it holds can't be assumed to be representive of real world trends in broadcasting unless, perhaps, a single chart position is isolated and looked at individually.
+
+- The lack of any artists being played more than once per week per station also seems unlikely to be the result of random sampling.  It could be a result of the small sampling size on a per week per station basis but is worth questioning whether the data has been filtered in this regard aswell.
+
+- Given the small sampling size of data on the per week / per station level, even if it is randomly sampled it still is not enough data to give an accurate impression of what is being played when looking at only a single station on a single week.
