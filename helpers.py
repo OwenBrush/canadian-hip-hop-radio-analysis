@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
+import plotly.graph_objects as go
 
 
 from constants import *
@@ -74,3 +75,84 @@ def haversine(lat1, lon1, lat2, lon2, to_radians=True, earth_radius=6371):
     a = np.sin((lat2-lat1)/2.0)**2 + np.cos(lat1) * np.cos(lat2) * np.sin((lon2-lon1)/2.0)**2
 
     return earth_radius * 2 * np.arcsin(np.sqrt(a))
+
+
+
+def chart_grouped_categorical_comparison(
+                                            groupby:pd.Series, 
+                                            to_compare:pd.Series, 
+                                            groups:list=None, 
+                                            categories:list=None, 
+                                            color_dict:dict=None, 
+                                            chart_width=1200,
+                                            chart_height=600
+                                            
+                                        ) -> None:
+    
+    traces = []
+    if categories is None:
+        categories = to_compare.unique()
+    if groups is None:
+        groups = groupby.unique()
+    for id in groups:
+        values = []
+        for x in categories:
+            value_count = (to_compare.loc[groupby == id] == x).value_counts(normalize=True)
+            if False in value_count.index:
+                values.append(1- value_count[False])
+            else:
+                values.append(0)
+           
+        new_trace = go.Bar( 
+                            name = id, 
+                            x = categories, 
+                            y = values,
+                            # marker_color = COLOR_DICT[id]
+                            )
+        if not color_dict is None:
+            if id in color_dict.keys():
+                new_trace.update({'marker_color':color_dict[id]})
+                
+        traces.append(new_trace)
+    
+    averages = []
+    for y, _ in enumerate(categories):
+        value = np.mean([traces[id]['y'][y] for id in range(len(traces))])
+        new_trace = go.Scatter(  
+                            name = f'{_}_average',
+                            mode = 'lines',
+                            x = (y,y+1),
+                            y = (value,value),
+                            marker_color = '#303030',
+                            showlegend=False,
+                            xaxis='x2'
+                            )
+        
+        averages.append(new_trace)
+        
+        
+    fig = go.Figure()
+    fig.add_traces(traces + averages)
+    
+    t1 = to_compare.name.replace('_',' ').capitalize()
+    t2 = groupby.name.replace('_',' ')
+    fig.update_layout(      
+                            width= chart_width, 
+                            height= chart_height,
+                            plot_bgcolor= 'white', 
+                            title = f'{t1} grouped by {t2}.',
+                            barmode = 'group',
+                            font=dict( size= 16)
+                    )
+    fig.update_yaxes(       
+                            dtick=0.1,    
+                            tickformat= '.0%',
+                            range= [0,1], 
+                            gridcolor='lightgray'
+                    )               
+    fig.layout.xaxis2 = go.layout.XAxis(
+                                        overlaying='x',
+                                        range=[0, len(categories)],
+                                        showticklabels=False
+                                        )
+    fig.show()
