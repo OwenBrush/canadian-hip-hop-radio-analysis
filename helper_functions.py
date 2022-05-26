@@ -78,48 +78,45 @@ def haversine(lat1, lon1, lat2, lon2, to_radians=True, earth_radius=6371):
 
 
 
-def chart_grouped_categorical_comparison(
-                                            groupby:pd.Series, 
-                                            to_compare:pd.Series, 
-                                            groups:list=None, 
-                                            categories:list=None, 
+def chart_categorical_comparison(
+                                            categories:pd.Series, 
+                                            compare_by:pd.Series, 
+                                            category_filter:list=None, 
+                                            comparison_filter:list=None, 
                                             color_dict:dict=None, 
                                             chart_width=1200,
                                             chart_height=600
-                                            
-                                        ) -> None:
+                                        ):
     
+    title_string_1 = categories.name.replace('_',' ')
+    title_string_2 = compare_by.name.replace('_',' ')
+    category_filter = categories.unique() if category_filter is None else category_filter
+    comparison_filter = compare_by.unique() if comparison_filter is None else comparison_filter
+
     traces = []
-    if categories is None:
-        categories = to_compare.unique()
-    if groups is None:
-        groups = groupby.unique()
-    for id in groups:
+    for id in comparison_filter:
         values = []
-        for x in categories:
-            value_count = (to_compare.loc[groupby == id] == x).value_counts(normalize=True)
+        for x in category_filter:
+            value_count = (categories.loc[compare_by == id] == x).value_counts(normalize=True)
             if False in value_count.index:
                 values.append(1- value_count[False])
             else:
-                values.append(0)
-           
+                values.append(0)  
         new_trace = go.Bar( 
                             name = id, 
-                            x = categories, 
+                            x = category_filter, 
                             y = values,
-                            # marker_color = COLOR_DICT[id]
                             )
         if not color_dict is None:
             if id in color_dict.keys():
-                new_trace.update({'marker_color':color_dict[id]})
-                
+                new_trace.update({'marker_color':color_dict[id]})        
         traces.append(new_trace)
     
     averages = []
-    for y, _ in enumerate(categories):
+    for y, x in enumerate(category_filter):
         value = np.mean([traces[id]['y'][y] for id in range(len(traces))])
         new_trace = go.Scatter(  
-                            name = f'{_}_average',
+                            name = f'{x}_average',
                             mode = 'lines',
                             x = (y,y+1),
                             y = (value,value),
@@ -127,20 +124,16 @@ def chart_grouped_categorical_comparison(
                             showlegend=False,
                             xaxis='x2'
                             )
-        
         averages.append(new_trace)
-        
-        
+           
     fig = go.Figure()
     fig.add_traces(traces + averages)
     
-    t1 = to_compare.name.replace('_',' ').capitalize()
-    t2 = groupby.name.replace('_',' ')
     fig.update_layout(      
                             width= chart_width, 
                             height= chart_height,
                             plot_bgcolor= 'white', 
-                            title = f'{t1} grouped by {t2}.',
+                            title = f'Distribution of {title_string_1} by {title_string_2}.',
                             barmode = 'group',
                             font=dict( size= 16)
                     )
@@ -152,7 +145,7 @@ def chart_grouped_categorical_comparison(
                     )               
     fig.layout.xaxis2 = go.layout.XAxis(
                                         overlaying='x',
-                                        range=[0, len(categories)],
+                                        range=[0, len(category_filter)],
                                         showticklabels=False
                                         )
     fig.show()
