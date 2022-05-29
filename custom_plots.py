@@ -81,17 +81,18 @@ def plot_categorical_comparison(
     fig.show()
 
 
-def plot_correlation_matrix(df:pd.DataFrame, color_scale=DEFAULT_COLOR_SCALE):
+def plot_correlation_matrix(df:pd.DataFrame, color_scale=DEFAULT_COLOR_SCALE, title='Correlation Map'):
     corr = df.corr()
     mask = np.triu(np.ones_like(corr, dtype=bool))
     df_mask = corr.mask(mask)
+    labels = [x.replace('_', ' ').title()+' ' for x in df_mask.columns.tolist()]
 
     fig = go.Figure()
 
     trace = go.Heatmap(
-                        z=df_mask.to_numpy(), 
-                        x=df_mask.columns.tolist(),
-                        y=df_mask.columns.tolist(),
+                        z=df_mask.to_numpy(),
+                        x=labels,
+                        y=labels,
                         zmin=-1,
                         zmax=1,
                         colorscale= color_scale
@@ -99,13 +100,15 @@ def plot_correlation_matrix(df:pd.DataFrame, color_scale=DEFAULT_COLOR_SCALE):
     fig.add_trace(trace)
     axis_template = dict(showgrid = False, zeroline = False)    
     fig.update_layout(
-        title_text='Heatmap', 
+        title_text=title, 
         title_x=0.5, 
         width=1000, 
         height=1000,
         yaxis = axis_template,
         xaxis = axis_template,
+        xaxis_tickangle = 30,
         yaxis_autorange = 'reversed',
-        template='plotly_white'
+        template='plotly_white',
+        font=dict( size= 16)
     )
     fig.show()
