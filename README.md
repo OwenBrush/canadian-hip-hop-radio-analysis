@@ -28,29 +28,29 @@
 
 ![Distribution of gender by nationalitt](/images/chart_artist_gender_by_nationality.png)
 
-- #### There is a signifigantly larger proportion of female artists from the UK than other nationalities.
+- #### There is a signifigantly larger proportion of female artists from the UK than amongst other nationalities.
 
 ![Distribution of race by province](/images/chart_bipoc_by_province.png)
 
-- #### The amount of BIPOC artists that get air time is roughly even across the provinces except for Nova Scotia which plays a signifigantly larger proportion of white artists.
+- #### Nova Scotia plays a signifigantly larger proportion of white artists.
 
 ![Distribution of canadian content by province](/images/chart_cancon_by_province.png)
 
-- #### The amount of Canadian artists that get air time is roughly even across the provinces except for Nova Scotia which plays a signifigantly larger proportion of Canadian Artists.
+- #### Nova Scotia also plays a signifigantly larger proportion of Canadian Artists.
 
 ![Distribution of race by nationality](/images/chart_station_plays_nationality.png)
 
-- #### There is a signifigantly larger proportion of black artists from the USA than other nationalities
-- #### There is a signifigantly larger proportion of ethnically asian or middle eastern artists from the UK and internationally
+- #### There is a signifigantly larger proportion of black artists from the USA than amongst other nationalities
+- #### There is a signifigantly larger proportion of ethnically asian or middle eastern artists from the UK or internationally than from USA or Canada
 
 ![Correlation of artist data](/images/correlation_artist.png)
 
 - #### There is a moderate negative correlation between artists qualifying as Canadian Content and belonging to a visable ethnic minority, meaning that Canadian artists within the dataset are more likely to be white.
-- #### There is a subtle positive correlation between Canadian Content and total plays, meaning that Canadian artists tend to get played more often.
+- #### There is a light positive correlation between Canadian Content and total plays, meaning that Canadian artists tend to get played more often.
 
 ![Correlation of station data](/images/correlation_station.png)
 
-- #### There is a strong negative correlation between Canadian Content and visable ethnic minority when it comes to songs getting air time, and it is worth noting that it is roughly twice as strong as the correlation that exists within the artist demographics, suggesting that there is a bias at the station level. 
+- #### There is a strong negative correlation between Canadian Content and visable ethnic minority when it comes to songs getting air time, and it is worth noting that it is roughly twice as strong as the correlation that exists within the artist demographics, suggesting that there is a bias at the station level. (Nova Scotia is not a large enough factor in the data set to signifigantly influence the strength of this correlation)
 - #### There is a strong positive correlation between the population of the station's city and the number of BIPOC artists that get played, meaning that stations in larger cities play more BIPOC artists.
 - #### There is a moderate positive correlation between total plays and male artists, meaning that male artists get played more often.
 - #### There is a moderate positive correlation between total plays and english songs, meaning that english songs get played more often.
