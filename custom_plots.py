@@ -24,7 +24,7 @@ def plot_categorical_comparison(
                                             category_filter:list=None, 
                                             comparison_filter:list=None, 
                                             color_dict:dict=None, 
-                                            chart_width=1200,
+                                            chart_width=800,
                                             chart_height=600
                                         ):
     
@@ -112,8 +112,8 @@ def plot_correlation_matrix(df:pd.DataFrame, color_scale=DEFAULT_BINARY_COLOR_SC
     fig.update_layout(
         title_text=title, 
         title_x=0.5, 
-        width=1000, 
-        height=1000,
+        width=600, 
+        height=600,
         yaxis = axis_template,
         xaxis = axis_template,
         xaxis_tickangle = 30,
@@ -141,7 +141,7 @@ def plot_time_series(time_series:list, y_labels:list, data:pd.DataFrame, title='
         yaxis_nticks = len(y_labels),
         xaxis_nticks= round(len(data.columns)/12),
         height=600,
-        width = 1200
+        width = 800
         )
 
     fig.show()
