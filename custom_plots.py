@@ -2,9 +2,19 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 
-DEFAULT_COLOR_SCALE =   [
+DEFAULT_BINARY_COLOR_SCALE =   [
                         [0.0, "#84145C"],
+                        [0.25, '#BF4995'],
                         [0.5, "rgb(255,255,255)"],
+                        [0.75, "#57B76C"],
+                        [1.0, "#276B36"]
+                        ]
+
+DEFAULT_GRADIENT_COLOR_SCALE =   [
+                        [0.0, "#84145C"],
+                        [0.25, '#4D5698'],
+                        [0.5, "#5E7A90"],
+                        [0.75, "#39A09B"],
                         [1.0, "#276B36"]
                         ]
 
@@ -81,7 +91,7 @@ def plot_categorical_comparison(
     fig.show()
 
 
-def plot_correlation_matrix(df:pd.DataFrame, color_scale=DEFAULT_COLOR_SCALE, title='Correlation Map'):
+def plot_correlation_matrix(df:pd.DataFrame, color_scale=DEFAULT_BINARY_COLOR_SCALE, title='Correlation Map'):
     corr = df.corr()
     mask = np.triu(np.ones_like(corr, dtype=bool))
     df_mask = corr.mask(mask)
@@ -111,4 +121,27 @@ def plot_correlation_matrix(df:pd.DataFrame, color_scale=DEFAULT_COLOR_SCALE, ti
         template='plotly_white',
         font=dict( size= 16)
     )
+    fig.show()
+    
+    
+def plot_time_series(time_series:list, y_labels:list, data:pd.DataFrame, title='Time Series Map'):
+
+
+    fig = go.Figure(data=go.Heatmap(
+            x=time_series,
+            y= [x.replace('_',' ').title()+' ' for x in y_labels],
+            z=data,
+            # colorscale=DEFAULT_GRADIENT_COLOR_SCALE
+                                    ),
+            )
+
+    fig.update_layout(
+        title=title,
+        font=dict( size= 16),
+        yaxis_nticks = len(y_labels),
+        xaxis_nticks= round(len(data.columns)/12),
+        height=600,
+        width = 1200
+        )
+
     fig.show()
