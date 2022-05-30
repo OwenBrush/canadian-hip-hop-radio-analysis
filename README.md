@@ -22,7 +22,7 @@
 ![Distribution of plays by province](/images/plays_by_province.png)
 
 - #### The data is heavily weighted towards Ontario
-- #### Data from stations inNew Brunswick and Nova Scotia is mostly absent for the second half of the time period
+- #### Data from stations inNew Brunswick and Nova Scotia are mostly absent for the second half of the time period
 
 ## Insights:
 
