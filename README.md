@@ -2,7 +2,7 @@
 
 ## Outline
 
-- This data was originally prepared to support a Doctoral Thesis by Deepak Mehmi
+- This data was originally prepared to support a doctoral thesis by Deepak Mehmi
 - I have created visualizations of the data in order to draw out insights based on the demographic qualities of artists and stations 
 
 
