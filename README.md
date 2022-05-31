@@ -54,6 +54,7 @@
 - #### There is a strong positive correlation between the population of the station's city and the number of BIPOC artists that get played, meaning that stations in larger cities play more BIPOC artists.
 - #### There is a moderate positive correlation between total plays and male artists, meaning that male artists get played more often.
 - #### There is a moderate positive correlation between total plays and english songs, meaning that english songs get played more often.
+- #### There is a moderate negative correlation between BIPOC artists and Male artists, meaning that the proportion of male artists is smaller within the selection of BIPOC artists.
 
 
 ![Comparison of BIPOC and can con](/images/bipoc_over_time.png)
