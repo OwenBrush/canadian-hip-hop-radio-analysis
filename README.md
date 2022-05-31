@@ -69,7 +69,7 @@ https://public.tableau.com/app/profile/owen6164/viz/CanadianRapBroadcasting/Dash
 ## Conclusions:
 
 - Given the small size and inconsistent frequency of the sampling, as well as the equal distribution of chart positions, this data is not neccesarily reflective of day to day airtime that artists are getting at these radio stations.
-- There appears to be less BIPOC Canadian artists compaired to artists of other nationalities. Whether this is in part a result of the demographic of artists in canada is not clear from this data, but it is clear that it is atleast in part a result of the programming decisions of radio stations.
-- It also seems to be clear that this bias is closely connected to Canadian Content, as shown by the negative correlation that exists between cancon and bipoc artists getting air time, when it should in theory be possible to increase Canadian Content without decreesing the number of bipoc artists geting air time.
+- There appears to be less BIPOC Canadian artists compared to artists of other nationalities. Whether this is in part a result of the demographic make up of artists in Canada is not clear from this data, but it is clear that it is atleast in part a result of the programming decisions of radio stations.
+- It also seems to be clear that this bias is closely connected to Canadian Content, as shown by the negative correlation that exists between cancon and BIPOC artists getting air time, when it should in theory be possible to increase Canadian Content without decreesing the number of bipoc artists geting air time.
 - This begs the question:  **When asked to play canadian content, do programmers unconsciously choose white artists more frequently than they otherwise would?**
 
